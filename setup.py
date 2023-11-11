@@ -38,7 +38,6 @@ setuptools.setup(
         "scanpy",
         "torch",
         "opencv-contrib-python",
-        "python-bioformats>=4.0.0",
         "loguru"
     ],
     classifiers=[
