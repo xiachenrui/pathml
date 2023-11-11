@@ -7,7 +7,7 @@ from io import BytesIO
 
 import numpy as np
 import openslide
-from javabridge.jutil import JavaException
+# from javabridge.jutil import JavaException
 from loguru import logger
 from PIL import Image
 from pydicom.dataset import Dataset
@@ -22,15 +22,15 @@ import pathml.core
 import pathml.core.tile
 from pathml.utils import pil_to_rgb
 
-try:
-    import bioformats
-    import javabridge
-    from bioformats.metadatatools import createOMEXMLMetadata
-except ImportError:
-    logger.exception("Unable to import bioformats, javabridge")
-    raise Exception(
-        "Installation of PathML not complete. Please install openjdk8, bioformats, and javabridge:\nconda install openjdk==8.0.152\npip install javabridge==1.0.19 python-bioformats==4.0.0\nFor detailed installation instructions, please see https://github.com/Dana-Farber-AIOS/pathml/"
-    )
+# try:
+#     import bioformats
+#     import javabridge
+#     from bioformats.metadatatools import createOMEXMLMetadata
+# except ImportError:
+#     logger.exception("Unable to import bioformats, javabridge")
+#     raise Exception(
+#         "Installation of PathML not complete. Please install openjdk8, bioformats, and javabridge:\nconda install openjdk==8.0.152\npip install javabridge==1.0.19 python-bioformats==4.0.0\nFor detailed installation instructions, please see https://github.com/Dana-Farber-AIOS/pathml/"
+#     )
 
 
 class SlideBackend:
@@ -262,6 +262,7 @@ class BioFormatsBackend(SlideBackend):
     """
 
     def __init__(self, filename, dtype=None):
+        raise NotImplementedError("BioFormatsBackend not yet implemented")
         self.filename = filename
         logger.info(f"BioFormatsBackend loading file at: {filename}")
         # init java virtual machine
